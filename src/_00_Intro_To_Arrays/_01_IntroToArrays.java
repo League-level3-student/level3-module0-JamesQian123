@@ -54,8 +54,16 @@ for(int i = 0; i <  numbers.length; i++) {
 
 }
         // 11. print the largest number in the array.
-
+int largest = numbers[0];
+for(int i = 0; i < numbers.length; i++) {
+	if(numbers[i] > largest) {
+		largest = numbers[i];
+	}
+}
+System.out.println("The largest number is " + largest);
         // 12. print only the last element in the array
 
+int last = numbers.length - 1;
+System.out.println(numbers[last]);
     }
 }
