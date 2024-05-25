@@ -24,6 +24,8 @@ package _03_Intro_to_2D_Arrays;
  *  Column 0 = matrix[0][0], matrix[1][0], matrix[2][0] // 1, 4, 7
  */
 public class _02_2DArrayPractice {
+	
+	
     /*
      * Return a 2D array that can accommodate the grid of values below:
      *          0, 1, 2
@@ -180,23 +182,45 @@ public class _02_2DArrayPractice {
      * 2. If the neighbor does not exist, i.e. it's outside the grid
      *    boundaries, return null.
      */
-    public Integer getEastNeighbor(int[][] matrix, int row, int col) {
-        
-        return null;
+    public static Integer getEastNeighbor(int[][] matrix, int row, int col) {
+    	int east = col + 1;
+    	if(east >= matrix.length) {
+    		return null;
+    	}
+    	Integer eastNumber = matrix[row][east];
+    	
+    	
+        return eastNumber;
     }
     
     public Integer getWestNeighbor(int[][] matrix, int row, int col) {
-        
-        return null;
+        int west = col - 1;
+        if(west < 0) {
+        	return null;
+        }
+        Integer westNumber = matrix[row][west];
+       
+        return westNumber;
     }
     
     public Integer getNorthNeighbor(int[][] matrix, int row, int col) {
+        int north = row - 1;
+        if(north < 0) {
+        	return null;
+        }
+        Integer northNumber = matrix[north][col];
+       
         
-        return null;
+        return northNumber;
     }
     
     public Integer getSouthNeighbor(int[][] matrix, int row, int col) {
+        int south = row + 1;
+        if(south >= matrix.length) {
+        	return null;
+        }
+        Integer southNumber = matrix[south][col];
         
-        return null;
+        return southNumber;
     }
 }
