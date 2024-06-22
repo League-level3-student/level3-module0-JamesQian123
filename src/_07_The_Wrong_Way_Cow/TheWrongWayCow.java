@@ -48,11 +48,37 @@
 
 package _07_The_Wrong_Way_Cow;
 
+import java.util.ArrayList;
+
 public class TheWrongWayCow {
 
     public static int[] findWrongWayCow(final char[][] field) {
         // Fill in the code to return the [col, row] coordinate position of the
         // head (letter 'c') of the wrong way cow!
+    	//j is col, i is row
+    	int counter = 0;
+    	ArrayList<int[]> cowsToTheRight = new ArrayList<int[]>();
+    	ArrayList<int[]> cowsToTheLeft = new ArrayList<int[]>();
+    	ArrayList<int[]> cowsThatAreDown = new ArrayList<int[]>();
+    	ArrayList<int[]> cowsThatAreUp = new ArrayList<int[]>();
+    	
+    	for(int i = 0; i < field.length; i++) {
+    		for(int j = 0; j < field[i].length - 2; j++) {
+    			if(field[i][j] == 'c' && field[i][j+1] == 'o' && field[i][j+2] == 'w') {
+    				int[] places = new int[2];
+    				places[0] = j;
+    				places[1] = i;
+    				cowsToTheRight.add(places);
+    			}
+ 
+    			
+    		}
+    	}
+    	for(int i = 0; i < field.length; i++) {
+    		for(int j = field.length -1; j > 1; j++) {
+    			
+    		}
+    	}
         
         return null;
     }
