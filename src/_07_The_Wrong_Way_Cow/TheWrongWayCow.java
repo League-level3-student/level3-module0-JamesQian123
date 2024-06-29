@@ -62,6 +62,8 @@ public class TheWrongWayCow {
     	ArrayList<int[]> cowsThatAreDown = new ArrayList<int[]>();
     	ArrayList<int[]> cowsThatAreUp = new ArrayList<int[]>();
     	
+    	//right
+    	
     	for(int i = 0; i < field.length; i++) {
     		for(int j = 0; j < field[i].length - 2; j++) {
     			if(field[i][j] == 'c' && field[i][j+1] == 'o' && field[i][j+2] == 'w') {
@@ -74,10 +76,56 @@ public class TheWrongWayCow {
     			
     		}
     	}
+    	// left
     	for(int i = 0; i < field.length; i++) {
-    		for(int j = field.length -1; j > 1; j++) {
+    		for(int j = 2; j < field[i].length; j++) {
+    			if(field[i][j] == 'c' && field[i][j-1] == 'o' && field[i][j-2] == 'w') {
+    				int[] places = new int[2];
+    				places[0] = j;
+    				places[1] = i; 
+    				cowsToTheLeft.add(places);
+    				
+    			}
     			
     		}
+    	}
+    	//up
+    	for(int i = 2; i < field.length; i++) {
+    		for(int j = 0; j < field[i].length; j++) {
+    			if(field[i][j] == 'c' && field[i -1][j] == 'o' && field[i-2][j] =='w') {
+    				int[] upPlaces = new int[2];
+    				upPlaces[0] = j; 
+    				upPlaces[1] = i; 
+    				cowsThatAreUp.add(upPlaces);
+    				
+    			}
+    			
+    		}
+    	}
+    	//down
+    	for(int i = 0; i < field.length -2;i++) {
+    		for(int j = 0; j < field[i].length; j++) {
+    			if(field[i][j] == 'c' && field[i +1][j] == 'o' && field[i+2][j] == 'w') {
+    				int[] downPlaces = new int[2];
+    				downPlaces[0] = j; 
+    				downPlaces[1] = i; 
+    				cowsThatAreDown.add(downPlaces);
+    			}
+    			
+    		}
+    	}
+    	if(cowsToTheRight.size() == 1) {
+    		return cowsToTheRight.get(0);
+    	}
+    	else if(cowsToTheLeft.size() == 1) {
+    		return cowsToTheLeft.get(0);
+    	}
+    	else if(cowsThatAreUp.size() == 1) {
+    		return cowsThatAreUp.get(0);
+    	
+    	}
+    	else if(cowsThatAreDown.size() == 1) {
+    		return cowsThatAreDown.get(0);
     	}
         
         return null;
